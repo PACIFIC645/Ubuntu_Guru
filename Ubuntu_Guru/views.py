@@ -13,12 +13,19 @@ from polls.models import Question
 
 
 class SignUpView(SuccessMessageMixin, CreateView):
+    """
+    Handles user registration with a custom user creation form.
+    Redirects to the login page upon successful registration and displays a success message.
+    """
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('Ubuntu_Guru:login')  
+    success_url = reverse_lazy('Ubuntu_Guru:login')
     template_name = 'Ubuntu_Guru/signup.html'
     success_message = "Your account was created successfully. Please log in."
 
     def form_invalid(self, form):
+        """
+        Overrides the form_invalid method to handle form validation errors by displaying them to the user.
+        """
         for _, errors in form.errors.items():
             for error in errors:
                 messages.error(self.request, error)
