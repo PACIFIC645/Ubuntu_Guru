@@ -12,12 +12,13 @@ body {
 /* Navbar Styles */
 .navbar {
     background-color: #343a40 !important;
-    padding: 1rem;
+    padding: 0.5rem 1rem; /* Adjust padding to control overall navbar height */
 }
 
 .nav-link {
     font-size: 1.1rem;
     transition: color 0.3s ease;
+    padding: 0.5rem 1rem; /* Provide sufficient padding for clickable area */
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -25,20 +26,26 @@ body {
     background-color: transparent;
 }
 
-/* Aligning login/logout button to the right of the navbar */
-.navbar .ms-auto .nav-link {
-    text-align: right;
+/* Ensuring vertical alignment is consistent */
+.navbar-nav {
+    align-items: center; /* This will vertically center the links */
 }
 
-/* Additional styles for the login/logout buttons */
-.navbar .nav-item .nav-link {
-    padding-right: 1rem;  /* Adds spacing to the right of the button */
-    color: #fff;  /* Ensures the text is white */
+/* Specific adjustments for live polls link */
+.navbar .nav-item {
+    margin-right: 10px; /* Consistent margin for all items */
 }
 
-.navbar .nav-item .nav-link:hover {
-    color: #ccc;  /* Color change on hover */
+/* Logout Form Styles */
+.navbar .nav-item form {
+    margin: 0; /* Remove margin to align button with links */
 }
+
+.navbar .btn-danger {
+    padding: 0.4rem 1rem; /* Adjust padding to align with nav links */
+    font-size: 1rem; /* Ensure font size matches nav links */
+}
+
 
 /* Carousel Styles */
 .carousel-item img {
@@ -65,20 +72,40 @@ body {
     color: white;
     padding: 20px 0;
     font-size: 1rem;
-    position: fixed; /* Fix footer to the bottom */
-    left: 0;
-    bottom: 0;
+    position: relative; /* Change from 'fixed' to 'relative' to allow natural document flow */
     width: 100%;
     text-align: center;
 }
 
-.footer img {
-    max-height: 50px;
-    transition: transform 0.3s ease;
+/* Social Media Handles Styles */
+.social-media-handles {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px; /* Add space between buttons */
+    margin: 10px 0; /* Add vertical spacing */
 }
 
-.footer img:hover {
-    transform: scale(1.1);
+.social-media-handles a {
+    padding: 10px 15px; /* Sufficient padding for clickability */
+    font-size: 16px; /* Readable font size */
+    white-space: nowrap; /* Prevent text wrapping within buttons */
+}
+
+/* Adjusting Footer and Social Media for Small Screens */
+@media (max-width: 768px) {
+    .footer {
+        padding: 10px 0; /* Less padding on small screens */
+    }
+
+    .social-media-handles {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        align-items: center; /* Center buttons when stacked */
+    }
+
+    .social-media-handles a {
+        padding: 8px 12px; /* Slightly smaller padding for small screens */
+    }
 }
 
 /* Custom Animations for Links */
