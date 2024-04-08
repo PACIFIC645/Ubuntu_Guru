@@ -1,0 +1,10 @@
+Welcome to Ubuntu_Guru's Documentation!
+=======================================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   Ubuntu_Guru
+   modules
