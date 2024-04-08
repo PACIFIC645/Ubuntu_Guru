@@ -1,9 +1,6 @@
-# polls/urls
-
 from django.urls import path
 from . import views
-from .views import poll_tracker_season
-from .views import view_polls
+from .views import poll_tracker_season, view_polls
 
 app_name = 'polls'   # Namespace for app-specific URLs
 

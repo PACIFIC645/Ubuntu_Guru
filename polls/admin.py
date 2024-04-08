@@ -31,5 +31,3 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'created_on', 'updated_on')
     list_filter = ('created_on', 'author')
     search_fields = ['title', 'content']
-
-

@@ -31,3 +31,4 @@ class Command(BaseCommand):
         user.user_permissions.add(permission)
         user.save()
         self.stdout.write(self.style.SUCCESS(f'Successfully assigned "manage_polls" permission to "{username}"'))
+        

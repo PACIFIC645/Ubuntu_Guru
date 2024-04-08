@@ -9,15 +9,6 @@ from django.http import Http404
 from django.shortcuts import redirect, get_object_or_404
 from .models import Question, BlogPost
 
-# @login_required
-# def index(request):
-#     """
-#     View for listing available polls.
-#     """
-#     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-#     context = {'latest_question_list': latest_question_list}
-#     return render(request, 'polls/index.html', context)
-
 
 @login_required
 def index(request):
@@ -29,11 +20,24 @@ def index(request):
 
 def vote(request, question_id):
     """
-    Processing votes for a poll question.
+    Processes a vote for a specific poll question identified by `question_id`.
+
+    Args:
+        request (HttpRequest): The request object used to pass states through the system.
+        question_id (int): The primary key of the poll question being voted on.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the voting results page if the vote is successful.
+        HttpResponse: Renders the polling detail page with an error message if an invalid choice is made.
+
+    Raises:
+        KeyError: If no choice is selected in the POST request data.
+        Choice.DoesNotExist: If the selected choice does not exist in the database.
     """
     if not request.user.is_authenticated:
         # Redirect to login page if the user is not authenticated
         return HttpResponseRedirect(reverse('Ubuntu_Guru:login') + "?next=" + request.path)
+    
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -91,4 +95,5 @@ def view_polls_live(request):
     """
     Redirect to the poll_tracker_season view.
     """
-    return redirect('polls:poll_tracker_season')  
+    return redirect('polls:poll_tracker_season') 
+ 
