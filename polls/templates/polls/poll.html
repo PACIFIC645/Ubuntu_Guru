@@ -1,0 +1,35 @@
+<!-- polls/poll.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+        <div class="d-flex justify-content-end my-2">
+            <form action="{% url 'user_auth:logout_user' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Log Out</button>
+            </form>
+        </div>
+    {% endif %}
+
+    {% if latest_question_list %}
+        <ul class="list-group my-5">
+            {% for question in latest_question_list %}
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="{% url 'polls:detail' question.id %}">
+                        {{ question.question_text }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="quote" style="text-align: center; margin-top: 20px; transition: transform 0.3s;">
+            <p>Talk is Cheap, voting is free, take it to the Polls. — Nanette L. Avery (Author)</p>
+        </div>    
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+

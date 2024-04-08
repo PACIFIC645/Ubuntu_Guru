@@ -1,0 +1,24 @@
+<!-- polls/templates/polls/index.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">WELCOME TO THE POLLING APP</h1>
+    <div class="text-center">
+        {% if user.is_authenticated %}
+            <p style="color: blue; font-size: 20px; font-weight: bold;">'Reel' ting No fiction.</p>
+            <!-- Check if latest_question_list is not empty before accessing its first element -->
+            {% if latest_question_list %}
+                <!-- Provide a link to the Poll Blog (served by home.html) -->
+                <a href="{% url 'polls:poll_tracker_season' %}" class="btn btn-primary" style="background-color: gold; border-color: black;">POLL APP</a>
+            {% endif %}
+        {% else %}
+            <!-- Display for unauthenticated users -->
+            <p style="color: blue; font-size: 20px; font-weight: bold;">Participate or View the latest polls.</p>
+            <a href="{% url 'Ubuntu_Guru:login' %}" class="btn btn-primary" style="background-color: gold; border-color: black;">Log in</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

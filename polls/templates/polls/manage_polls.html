@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Manage Polls{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Polls</h1>
+    <p>Here you can view, create, and edit polls.</p>
+    <div class="mb-3">
+        <a href="{% url 'polls:create' %}" class="btn btn-primary">Create New Poll</a>
+    </div>
+    <div class="row">
+        {% for poll in polls_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ poll.question_text }}</h5>
+                        <p class="card-text"><small class="text-muted">Published: {{ poll.pub_date }}</small></p>
+                        <a href="{% url 'polls:detail' poll.id %}" class="btn btn-outline-primary btn-sm">View Poll</a>
+                        <a href="{% url 'polls:edit' poll.id %}" class="btn btn-outline-secondary btn-sm">Edit Poll</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No polls found. Create a new poll to get started.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

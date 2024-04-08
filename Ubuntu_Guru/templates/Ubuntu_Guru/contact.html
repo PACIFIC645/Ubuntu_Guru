@@ -1,0 +1,30 @@
+<!-- Ubuntu_Guru/contact.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Contact Us</h1>
+    <p>Have questions? Want to get in touch? Email us at info@ubuntu-guru.com or call us at +2767 755 3743.</p>
+</div>
+<div class="col-md-6 offset-md-3">
+  <form class="contact-form">
+    <div class="mb-3">
+      <label for="contactName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="contactName" placeholder="Your Name">
+    </div>
+    <div class="mb-3">
+      <label for="contactEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="contactEmail" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="contactMessage" class="form-label">Message</label>
+      <textarea class="form-control" id="contactMessage" rows="3"></textarea>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="home-specific" class="content-wrapper bg-cover bg-center p-5 text-center rounded-lg shadow-lg" style="background-image: url('https://i.imgur.com/gK6BBm9.jpg');">
+    <h1 class="text-yellow-400 font-extrabold text-4xl mb-8 hover:text-black" style="text-shadow: 2px 2px #000;">You are now Officially in Poll Tracker Season</h1>
+
+    <h2 class="text-xl mb-6">OTHER COUNTRIES AT THE POLLS 2024</h2>
+    <div class="country-info space-y-4">
+        <div class="inline-block p-2">
+            <img src="https://i.imgur.com/oILfABJ.jpg" alt="Russia Flag" class="country-flag" style="width: 120px; transition: transform 0.3s;">
+            <p>Russia - Moscow - Vladimir Putin</p>
+            <a href="#" class="btn btn-info">Read More</a>
+        </div>
+
+        <div class="inline-block p-2">
+            <img src="https://i.imgur.com/tSgRP8b.jpg" alt="USA Flag" class="country-flag" style="width: 120px; transition: transform 0.3s;">
+            <p>USA - Washington DC - Joe Biden</p>
+            <a href="#" class="btn btn-info">Read More</a>
+        </div>
+    </div>
+
+    <!-- Blog posts iteration -->
+    {% for post in recent_blog_posts %}
+    <div class="blog-post">
+        <h2>{{ post.title }}</h2>
+        <p><small>By {{ post.author }} on {{ post.created_on }}</small></p>
+        <p>{{ post.content|linebreaks }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+<style>
+    .content-wrapper {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        text-align: center; /* Center content */
+    }
+
+    .animated-header {
+        animation: fadeInDown 2s;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        color: #007bff;
+        margin-bottom: 30px;
+    }
+
+    .country-info {
+        display: inline-block;
+        margin: auto;
+    }
+
+    .country-info .country-flag {
+        background-color: #f0f0f0; /* Neutral background for PNG images */
+        width: 120px; /* Adjusted to match the inline style */
+        height: auto;
+        margin-bottom: 15px;
+        transition: transform 0.5s ease; /* Smooth transform transition */
+    }
+
+    .country-flag:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .blog-post {
+        margin-bottom: 2rem;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translate3d(0, -100%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+</style>
+{% endblock %}
