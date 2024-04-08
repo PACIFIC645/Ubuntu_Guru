@@ -21,5 +21,3 @@ urlpatterns = [
     # Logout path redirects to the namespaced 'home' URL.
     path('logout/', auth_views.LogoutView.as_view(next_page='Ubuntu_Guru:home'), name='logout'),
 ]
-
-

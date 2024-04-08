@@ -1,5 +1,3 @@
-# ubuntu_guru/models.py
-
 from django.db import models
 
 class Article(models.Model):
@@ -20,4 +18,3 @@ class Article(models.Model):
         Returns a string representation of the article, which is its title.
         """
         return self.title
-        
