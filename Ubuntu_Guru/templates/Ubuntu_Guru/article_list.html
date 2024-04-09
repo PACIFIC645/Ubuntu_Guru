@@ -1,0 +1,21 @@
+<!-- Ubuntu_Guru/article_list.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Articles</h1>
+    <ul class="list-unstyled">
+        {% for article in articles %}
+            <li class="my-3">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.content|truncatewords:30 }}</p>
+                <a href="#" class="btn btn-primary">Read more</a>
+            </li>
+        {% empty %}
+            <p>No articles found.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- polls/templates/polls/results.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2 class="text-center">{{ question.question_text }}</h2>
+    <ul class="list-group my-3">
+        {% for choice in question.choice_set.all %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ choice.choice_text }}
+                <span class="badge bg-primary rounded-pill">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="text-center">
+        <!-- The "Vote again?" button -->
+        <a class="btn btn-success mt-3" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+        
+        <!-- The "Back to Polls" button -->
+        <a href="{% url 'polls:index' %}" class="btn btn-secondary mt-3">Back to Polls</a>
+    </div>
+</div>
+{% endblock %}

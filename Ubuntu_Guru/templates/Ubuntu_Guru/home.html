@@ -1,0 +1,74 @@
+<!-- Ubuntu_Guru/home.html -->
+
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Ubuntu Guru Carousel{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Ubuntu Guru</h1>
+    <p>This is the home of the future of our nation. Join us in our journey towards a brighter tomorrow.</p>
+</div>
+
+<div id="ubuntuGuruCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel indicators -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#ubuntuGuruCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#ubuntuGuruCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#ubuntuGuruCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    
+    <!-- Carousel inner -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://imgur.com/quKmGUw.jpg" class="d-block w-100" alt="First slide image">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>It all begins somewhere</h5>
+                <p>Democracy depends on the Oxygen of Participation.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://imgur.com/8NiFGjZ.jpg" class="d-block w-100" alt="Second slide image">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Nations are Built</h5>
+                <p>The rebuilding, if warranted, must be swift.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://imgur.com/RtSXntZ.jpg" class="d-block w-100" alt="Third slide image">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Organize socially, not only politically</h5>
+                <p>Liberate the Future.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#ubuntuGuruCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#ubuntuGuruCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="content">
+    <h1 class="home-title">{% trans "Welcome to Ubuntu Guru!" %}</h1>
+    <p class="home-intro">{% trans "This is the home page for all things Ubuntu. Stay informed with the latest updates and insights." %}</p>
+</div>
+{% if user.is_authenticated %}
+    <h2>Latest Polls</h2>
+    {% for question in latest_questions %}
+        <p><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></p>
+    {% endfor %}
+{% else %}
+    <p>Want to participate in the latest polls? <a href="{% url 'Ubuntu_Guru:login' %}">Log in</a> to view and vote!</p>
+{% endif %}
+{% endblock %}
+
+
+

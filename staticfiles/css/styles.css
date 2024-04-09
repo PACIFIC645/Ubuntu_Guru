@@ -1,0 +1,181 @@
+
+/* mysite/Static/css/styles.css  */
+/* General Body Styles */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of viewport */
+}
+
+/* Ensure main content expands to push footer down */
+.container {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40 !important;
+    padding: 1rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #f8f9fa !important;
+    background-color: transparent;
+}
+
+/* Aligning login/logout button to the right of the navbar */
+.navbar .ms-auto .nav-link {
+    text-align: right;
+}
+
+/* Additional styles for the login/logout buttons */
+.navbar .nav-item .nav-link {
+    padding-right: 1rem; /* Adds spacing to the right of the button */
+    color: #fff; /* Ensures the text is white */
+}
+
+.navbar .nav-item .nav-link:hover {
+    color: #ccc; /* Color change on hover */
+}
+
+/* Main Content Style */
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Carousel Styles */
+.carousel-item img {
+    height: 75vh;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.carousel-caption h5 {
+    font-size: 2.5rem;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+}
+
+/* Footer Styles */
+.footer {
+background-image: url('https://imgur.com/esYw9y9.jpg');
+background-size: cover;
+background-position: center;
+color: white;
+font-size: 20px;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+z-index: 2;
+}
+
+.footer:before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+z-index: 1;
+}
+
+.footer span {
+    z-index: 2;
+    position: relative;
+}
+
+/* Custom Animations for Links */
+@keyframes linkFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+a {
+    animation: linkFadeIn 0.5s ease-out;
+}
+
+/* Gallery Styles */
+.gallery-item {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Enhancing the Corporate Feel */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+    font-weight: 300;
+}
+
+p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 50vh;
+    }
+
+    .carousel-caption h5 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+
+    .footer {
+        height: 150px;
+        font-size: 16px;
+    }
+}
+
+.logo-container img {
+    transition: transform 0.5s ease;
+    padding: 50px; /* Smart padding */
+}
+
+.logo-container img:hover {
+    transform: translateX(20px); /* Moves sideways on hover */
+}
+
+/* Speckles around the logo */
+.speckles {
+    background-image: url('path_to_speckles_image');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 0; /* Adjust based on your design needs */
+}

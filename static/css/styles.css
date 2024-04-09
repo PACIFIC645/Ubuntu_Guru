@@ -1,0 +1,225 @@
+/* mysite/Static/css/styles.css  */
+
+/* General Body Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s ease;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40 !important;
+    padding: 0.5rem 1rem; /* Adjust padding to control overall navbar height */
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem; /* Provide sufficient padding for clickable area */
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #f8f9fa !important;
+    background-color: transparent;
+}
+
+/* Ensuring vertical alignment is consistent */
+.navbar-nav {
+    align-items: center; /* This will vertically center the links */
+}
+
+/* Specific adjustments for live polls link */
+.navbar .nav-item {
+    margin-right: 10px; /* Consistent margin for all items */
+}
+
+/* Logout Form Styles */
+.navbar .nav-item form {
+    margin: 0; /* Remove margin to align button with links */
+}
+
+.navbar .btn-danger {
+    padding: 0.4rem 1rem; /* Adjust padding to align with nav links */
+    font-size: 1rem; /* Ensure font size matches nav links */
+}
+
+
+/* Carousel Styles */
+.carousel-item img {
+    height: 75vh;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.carousel-caption h5 {
+    font-size: 2.5rem;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    font-size: 1rem;
+    position: relative; /* Change from 'fixed' to 'relative' to allow natural document flow */
+    width: 100%;
+    text-align: center;
+}
+
+/* Social Media Handles Styles */
+.social-media-handles {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px; /* Add space between buttons */
+    margin: 10px 0; /* Add vertical spacing */
+}
+
+.social-media-handles a {
+    padding: 10px 15px; /* Sufficient padding for clickability */
+    font-size: 16px; /* Readable font size */
+    white-space: nowrap; /* Prevent text wrapping within buttons */
+}
+
+/* Adjusting Footer and Social Media for Small Screens */
+@media (max-width: 768px) {
+    .footer {
+        padding: 10px 0; /* Less padding on small screens */
+    }
+
+    .social-media-handles {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        align-items: center; /* Center buttons when stacked */
+    }
+
+    .social-media-handles a {
+        padding: 8px 12px; /* Slightly smaller padding for small screens */
+    }
+}
+
+/* Custom Animations for Links */
+@keyframes linkFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+a {
+    animation: linkFadeIn 0.5s ease-out;
+}
+
+/* Gallery Styles */
+.gallery-item {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Enhancing the Corporate Feel */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+    font-weight: 300;
+}
+
+p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 50vh;
+    }
+
+    .carousel-caption h5 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+
+    .footer img {
+        max-height: 40px;
+    }
+}
+
+/* Specific Styles for Login and Signup Forms Adjustments */
+/* Centering Forms within their container */
+.container.py-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form Control and Button Alignment */
+.needs-validation .form-control, .needs-validation .btn {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Button and Form Field Width Consistency */
+.needs-validation .btn, .needs-validation .form-control {
+    width: 90%; /* Adjust this value to suit your design */
+}
+
+/* Login and Signup Link Alignment */
+.needs-validation + p {
+    text-align: center;
+}
+
+/* Social Media Icons Adjustment */
+.social-media-handles {
+    position: relative; 
+    bottom: auto; 
+    width: 100%;
+    font-size: 2rem; /* Adjust size as needed */
+    padding-top: 20px; /* Adds space above the social media icons */
+}
+
+/* Adjust padding and font size for index wording */
+.index-wording {
+    padding: 20px; /* Adjust padding as needed */
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+/* Adjust responsiveness for Latest Polls */
+.latest-polls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Adjust individual poll item width */
+.latest-polls .poll-item {
+    width: calc(33.33% - 20px); /* Adjust width and spacing as needed */
+    margin-bottom: 20px; /* Add margin between poll items */
+}
+
+@media (max-width: 768px) {
+    .latest-polls .poll-item {
+        width: calc(50% - 20px); /* Adjust width for smaller screens */
+    }
+}
