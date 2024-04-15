@@ -107,13 +107,13 @@ Running Ubuntu Guru with Docker simplifies setup and ensures consistency across 
 1. **Build the Docker image**:
    Navigate to the directory containing your project and Dockerfile. Build the Docker image using the command:
    ```
-   docker build -t ubuntu_guru_app .
+   docker build -t ubuntu_guru_current .
    ```
 
 2. **Run the container**:
    Run your Docker container using the command below, which makes your application accessible at `http://localhost:8000`:
    ```
-   docker run -p 8000:8000 ubuntu_guru_app
+   docker run -p 8000:8000 ubuntu_guru_current
    ```
 
 ### Pulling and Running from Docker Hub
